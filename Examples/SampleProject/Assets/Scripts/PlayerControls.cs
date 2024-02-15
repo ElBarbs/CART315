@@ -118,6 +118,76 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""BreakoutPlayer"",
+            ""id"": ""2257d197-5667-42a3-b9ea-6a4b9060258f"",
+            ""actions"": [
+                {
+                    ""name"": ""MoveLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""e5b838a6-988a-4bf9-b82c-2d5a98764dc3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MoveRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""b116e2ff-e336-4d30-8ac8-33dfdf778eb1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""25953daf-8641-4d0e-95d5-605ad6183be5"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a70e0791-f7f4-4729-94ca-8f08638bf88d"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""76060aa9-0d55-45c8-abbb-9b01e402379b"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f39d10c3-0b44-4ac7-8c06-09f21a14227c"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -130,6 +200,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
         m_Player2_MoveUp = m_Player2.FindAction("MoveUp", throwIfNotFound: true);
         m_Player2_MoveDown = m_Player2.FindAction("MoveDown", throwIfNotFound: true);
+        // BreakoutPlayer
+        m_BreakoutPlayer = asset.FindActionMap("BreakoutPlayer", throwIfNotFound: true);
+        m_BreakoutPlayer_MoveLeft = m_BreakoutPlayer.FindAction("MoveLeft", throwIfNotFound: true);
+        m_BreakoutPlayer_MoveRight = m_BreakoutPlayer.FindAction("MoveRight", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -295,6 +369,60 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public Player2Actions @Player2 => new Player2Actions(this);
+
+    // BreakoutPlayer
+    private readonly InputActionMap m_BreakoutPlayer;
+    private List<IBreakoutPlayerActions> m_BreakoutPlayerActionsCallbackInterfaces = new List<IBreakoutPlayerActions>();
+    private readonly InputAction m_BreakoutPlayer_MoveLeft;
+    private readonly InputAction m_BreakoutPlayer_MoveRight;
+    public struct BreakoutPlayerActions
+    {
+        private @PlayerControls m_Wrapper;
+        public BreakoutPlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MoveLeft => m_Wrapper.m_BreakoutPlayer_MoveLeft;
+        public InputAction @MoveRight => m_Wrapper.m_BreakoutPlayer_MoveRight;
+        public InputActionMap Get() { return m_Wrapper.m_BreakoutPlayer; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(BreakoutPlayerActions set) { return set.Get(); }
+        public void AddCallbacks(IBreakoutPlayerActions instance)
+        {
+            if (instance == null || m_Wrapper.m_BreakoutPlayerActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_BreakoutPlayerActionsCallbackInterfaces.Add(instance);
+            @MoveLeft.started += instance.OnMoveLeft;
+            @MoveLeft.performed += instance.OnMoveLeft;
+            @MoveLeft.canceled += instance.OnMoveLeft;
+            @MoveRight.started += instance.OnMoveRight;
+            @MoveRight.performed += instance.OnMoveRight;
+            @MoveRight.canceled += instance.OnMoveRight;
+        }
+
+        private void UnregisterCallbacks(IBreakoutPlayerActions instance)
+        {
+            @MoveLeft.started -= instance.OnMoveLeft;
+            @MoveLeft.performed -= instance.OnMoveLeft;
+            @MoveLeft.canceled -= instance.OnMoveLeft;
+            @MoveRight.started -= instance.OnMoveRight;
+            @MoveRight.performed -= instance.OnMoveRight;
+            @MoveRight.canceled -= instance.OnMoveRight;
+        }
+
+        public void RemoveCallbacks(IBreakoutPlayerActions instance)
+        {
+            if (m_Wrapper.m_BreakoutPlayerActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IBreakoutPlayerActions instance)
+        {
+            foreach (var item in m_Wrapper.m_BreakoutPlayerActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_BreakoutPlayerActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public BreakoutPlayerActions @BreakoutPlayer => new BreakoutPlayerActions(this);
     public interface IPlayer1Actions
     {
         void OnMoveUp(InputAction.CallbackContext context);
@@ -304,5 +432,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {
         void OnMoveUp(InputAction.CallbackContext context);
         void OnMoveDown(InputAction.CallbackContext context);
+    }
+    public interface IBreakoutPlayerActions
+    {
+        void OnMoveLeft(InputAction.CallbackContext context);
+        void OnMoveRight(InputAction.CallbackContext context);
     }
 }

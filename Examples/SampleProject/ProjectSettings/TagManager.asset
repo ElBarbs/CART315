@@ -9,6 +9,8 @@ TagManager:
   - Wall
   - RightWall
   - LeftWall
+  - Reset
+  - Brick
   layers:
   - Default
   - TransparentFX

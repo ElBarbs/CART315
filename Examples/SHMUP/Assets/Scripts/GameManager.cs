@@ -39,13 +39,6 @@ public class GameManager : MonoBehaviour
         StartCoroutine(nameof(SpawnEnemyRoutine));
     }
 
-    private void SpawnEnemy()
-    {
-        var newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-        SpriteRenderer enemyRenderer = newEnemy.GetComponent<SpriteRenderer>();
-        newEnemy.GetComponent<SpriteRenderer>().color = COLORS[Random.Range(0, COLORS.Length)];
-    }
-
     IEnumerator SpawnEnemyRoutine()
     {
         // Infinite loop to continuously spawn enemies.

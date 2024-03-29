@@ -1,4 +1,4 @@
-# Design Journal - Louis Barbier & Noah Kornberg
+# Design Journal - Louis Barbier
 
 ## Game Analysis
 

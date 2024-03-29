@@ -70,6 +70,6 @@
   - Cleanliness.
   - Alcohol.
  
-  ## Shindig Tycoon - Prototype 2
+## Shindig Tycoon - Prototype 2
 
-  We are trying to figure out the look and feel of the game. We found assets together and I created the playable area while Noah worked on the HUD.
+We are trying to figure out the look and feel of the game. We found assets together and I created the playable area while Noah worked on the HUD.

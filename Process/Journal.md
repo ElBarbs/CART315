@@ -69,6 +69,11 @@
   - Music.
   - Cleanliness.
   - Alcohol.
+
+### Images
+
+![Screen](/Process/Images/CART315_Prototype01_Screen.jpg)
+![Cards](/Process/Images/CART315_Prototype01_Cards.jpg)
  
 ## Shindig Tycoon - Prototype 2
 

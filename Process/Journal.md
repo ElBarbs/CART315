@@ -1,10 +1,8 @@
 # Design Journal - Louis Barbier
 
-## Game Analysis
+## Enter the Gungeon - Game Analysis
 
-### Enter the Gungeon
-
-#### Mechanics
+### Mechanics
 
 - Lots of different guns (243) and passive/active items (271).
   - 1410 synergies possible between guns and items.
@@ -24,7 +22,7 @@
 - An elevator can be unlocked and upgraded to skip the first floors when starting a new run.
 - Special reward when killing the boss of a floor without taking damage.
 
-#### Ideas for Future Projects
+### Ideas for Future Projects
 
 - Synergies between items.
 - Limited quantity of ammo.
@@ -32,7 +30,7 @@
 - Different shooting types.
 - "Curse" stat.
 
-## Prototype 1 - Shindig Tycoon
+## Shindig Tycoon - Prototype 1
 
 **"Shindig Tycoon"** is an exhilarating single-player management simulation where you step into the shoes of the ultimate house party host. Your mission? To throw the most legendary parties in the heart of Partydale. As the mastermind behind these unforgettable gatherings, you're tasked with juggling a myriad of responsibilities to keep your guests ecstatic. From blasting the latest hits that keep the energy high, maintaining an impeccable environment, to mixing the wildest cocktails, every detail counts. Your objective is clear: create a buzz that makes your house the talk of the town while skillfully avoiding unwanted attention. Dodge the watchful eyes of your parents and steer clear of any reasons for the police to disrupt your epic celebration. Welcome to **"Shindig Tycoon,"** where the night is young, and the possibilities are endless.
 

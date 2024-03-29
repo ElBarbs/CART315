@@ -69,5 +69,7 @@
   - Music.
   - Cleanliness.
   - Alcohol.
+ 
+  ## Shindig Tycoon - Prototype 2
 
-Embark on a mission to have the most pumping house party in all of Partydale. Make sure to keep your parents away and not let the cops come knocking!
+  We are trying to figure out the look and feel of the game. We found assets together and I created the playable area while Noah worked on the HUD.

@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public BaseMeter MusicMeter { get; private set; }
     public BaseMeter TrashMeter { get; private set; }
     public BaseMeter DrinkMeter { get; private set; }
+
+    public GameObject PanelManager;
     private const float TotalMaxValue = 300f; // Sum of max values of all meters
     private const float HappinessMaxValue = 200f; // Max value for overall happiness
 
@@ -19,9 +21,22 @@ public class GameManager : MonoBehaviour
 
     }
 
+
+    void PanelUpdate()
+    {
+        PanelManager.GetComponent<MeterManager>().UpdateSpecificMeter("Drink", -0.1f);
+        PanelManager.GetComponent<MeterManager>().UpdateSpecificMeter("Music", -0.1f);
+        PanelManager.GetComponent<MeterManager>().UpdateSpecificMeter("Trash", -0.1f);
+
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            PanelUpdate();
+        }
 
 
     }

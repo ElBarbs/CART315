@@ -25,6 +25,8 @@ public class MeterTester : MonoBehaviour
         {
             UpdateAndLogMeter();
         }
+
+
     }
 
     void UpdateAndLogMeter()

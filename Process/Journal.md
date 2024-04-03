@@ -32,6 +32,8 @@
 
 ## Shindig Tycoon - Prototype 1
 
+### Description
+
 **"Shindig Tycoon"** is an exhilarating single-player management simulation where you step into the shoes of the ultimate house party host. Your mission? To throw the most legendary parties in the heart of Partydale. As the mastermind behind these unforgettable gatherings, you're tasked with juggling a myriad of responsibilities to keep your guests ecstatic. From blasting the latest hits that keep the energy high, maintaining an impeccable environment, to mixing the wildest cocktails, every detail counts. Your objective is clear: create a buzz that makes your house the talk of the town while skillfully avoiding unwanted attention. Dodge the watchful eyes of your parents and steer clear of any reasons for the police to disrupt your epic celebration. Welcome to **"Shindig Tycoon,"** where the night is young, and the possibilities are endless.
 
 ### Game Features
@@ -72,9 +74,15 @@
 
 ### Images
 
-![Screen](/Process/Images/CART315_Prototype01_Screen.jpg)
-![Cards](/Process/Images/CART315_Prototype01_Cards.jpg)
+![Prototype 1 Screen](/Process/Images/CART315_Prototype01_Screen.jpg)
+![Prototype 1 Cards](/Process/Images/CART315_Prototype01_Cards.jpg)
  
 ## Shindig Tycoon - Prototype 2
 
-We are trying to figure out the look and feel of the game. We found assets together and I created the playable area while Noah worked on the HUD.
+### Description
+
+We are trying to figure out the look and feel of the game. We found assets together and I created the playable area while Noah worked on the HUD. I got to familiarize myself with Grid and Tilemap components, as well as how to import sprites and create a Tile Palette. The next step will be to work on the mechanics, more specifically on the AI pathfinding.
+
+### Images
+
+![Prototype 2 Screen](/Process/Images/CART315_Prototype02_Screen.png)

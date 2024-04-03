@@ -1,10 +1,8 @@
-# Design Journal - Louis Barbier & Noah Kornberg
+# Design Journal - Louis Barbier
 
-## Game Analysis
+## Enter the Gungeon - Game Analysis
 
-### Enter the Gungeon
-
-#### Mechanics
+### Mechanics
 
 - Lots of different guns (243) and passive/active items (271).
   - 1410 synergies possible between guns and items.
@@ -24,7 +22,7 @@
 - An elevator can be unlocked and upgraded to skip the first floors when starting a new run.
 - Special reward when killing the boss of a floor without taking damage.
 
-#### Ideas for Future Projects
+### Ideas for Future Projects
 
 - Synergies between items.
 - Limited quantity of ammo.
@@ -32,45 +30,59 @@
 - Different shooting types.
 - "Curse" stat.
 
-# Shindig Tycoon
+## Shindig Tycoon - Prototype 1
+
+### Description
 
 **"Shindig Tycoon"** is an exhilarating single-player management simulation where you step into the shoes of the ultimate house party host. Your mission? To throw the most legendary parties in the heart of Partydale. As the mastermind behind these unforgettable gatherings, you're tasked with juggling a myriad of responsibilities to keep your guests ecstatic. From blasting the latest hits that keep the energy high, maintaining an impeccable environment, to mixing the wildest cocktails, every detail counts. Your objective is clear: create a buzz that makes your house the talk of the town while skillfully avoiding unwanted attention. Dodge the watchful eyes of your parents and steer clear of any reasons for the police to disrupt your epic celebration. Welcome to **"Shindig Tycoon,"** where the night is young, and the possibilities are endless.
 
-## Game Features
+### Game Features
 
-### Art Direction / Sprites
+#### Art Direction / Sprites
 
-- **Map**
-- **Character**
-- **Objects**
+- Map
+  - Multiple floors.
+  - House gets bigger as you advance through the game.
+- Character
+  - Mutiple colors.
+- Interactable Objects
+  - DJ booth.
+  - Toilet.
+  - Fridge.
+  - Etc.
 
-### Mood Manager
+#### Character AI
 
-- **Interactions**
-- **Map Boundaries**
-- **Physics Interactions**
-- **Object Interactions / Minigames**
+- AI Interactions with Minigames.
+- AI Pathfinding.
+- Villain Interactions
+  - Police.
+  - Neighbours.
+  - Parents.
 
-### Character AI
+#### Game Manager
 
-- **AI Interactions with Minigames**
-- **AI Movement**
-- **Villain Interaction**
-- **Police**
-- **Neighbours**
-- **Your Parents**
+- HUD / UI
+  - Number of attendees.
+  - Time.
+  - Event log.
+- The Meters
+  - Happiness.
+  - Music.
+  - Cleanliness.
+  - Alcohol.
 
-### Game Manager
+### Images
 
-- **HUD / UI**
-- **The Meters:**
-  - Happiness
-  - Music
-  - Trash
-  - Drink
-  - People Level
-  - Time
-  - Amount of People in the House
-  - Event Log
+![Prototype 1 Screen](/Process/Images/CART315_Prototype01_Screen.jpg)
+![Prototype 1 Cards](/Process/Images/CART315_Prototype01_Cards.jpg)
+ 
+## Shindig Tycoon - Prototype 2
 
-Embark on a mission to have the most pumping house party in all of Partydale. Make sure to keep your parents away and not let the cops come knocking!
+### Description
+
+We are trying to figure out the look and feel of the game. We found assets together and I created the playable area while Noah worked on the HUD. I got to familiarize myself with Grid and Tilemap components, as well as how to import sprites and create a Tile Palette. The next step will be to work on the mechanics, more specifically on the AI pathfinding.
+
+### Images
+
+![Prototype 2 Screen](/Process/Images/CART315_Prototype02_Screen.png)

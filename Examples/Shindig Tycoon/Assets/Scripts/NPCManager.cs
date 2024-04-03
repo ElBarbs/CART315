@@ -28,6 +28,11 @@ public class NPCManager : MonoBehaviour
         }
     }
 
+    public int GetVisitorCount()
+    {
+        return _visitorCount;
+    }
+
     public void Start()
     {
         _visitorMax = 20;
@@ -104,7 +109,7 @@ public class NPCManager : MonoBehaviour
                 {
                 }
             }
-            
+
             yield return new WaitForSeconds(Random.Range(5f, 20f));
         }
     }

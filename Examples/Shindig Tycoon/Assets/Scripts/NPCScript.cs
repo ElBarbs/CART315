@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -10,6 +11,8 @@ public class NPCScript : MonoBehaviour
     
     private Vector3 _target;
     private NavMeshAgent _agent;
+
+    private SpriteRenderer _emoticon;
     
     private float _waitTime, _currentTime;
     private float _drunknessLevel, _happinessLevel;
@@ -28,12 +31,14 @@ public class NPCScript : MonoBehaviour
             _target = point;
         }
 
+        _emoticon = transform.GetChild(0).GetComponent<SpriteRenderer>();
+
         _waitTime = Random.Range(0f, 5f);
         _currentTime = 0f;
 
         _range = 10f;
-        _speed = 3.5f;
-        _acceleration = 8f;
+        _speed = Random.Range(2.5f, 4.5f);
+        _acceleration = Random.Range(7.5f, 9f);
 
         _drunknessLevel = Random.Range(0f, 0.6f);
         _happinessLevel = Random.Range(0.5f, 1f);
@@ -82,6 +87,11 @@ public class NPCScript : MonoBehaviour
                 _currentTime += Time.deltaTime;
             }
         }
+
+        if (Random.Range(1f, 10f) > 9f)
+        {
+            StartCoroutine(DisplayEmoticon());
+        }
     }
     
     private bool RandomPoint(Vector3 center, float range, out Vector3 result)
@@ -93,6 +103,7 @@ public class NPCScript : MonoBehaviour
             if (NavMesh.SamplePosition(randomPoint, out var hit, 1.0f, NavMesh.AllAreas))
             {
                 result = hit.position;
+                
                 return true;
             }
         }
@@ -101,5 +112,15 @@ public class NPCScript : MonoBehaviour
         return false;
     }
     
-    
+    private IEnumerator DisplayEmoticon()
+    {
+        // Ensure the sprite is visible
+        _emoticon.enabled = true;
+
+        // Wait for the specified amount of seconds
+        yield return new WaitForSeconds(2f);
+
+        // Hide the sprite
+        _emoticon.enabled = false;
+    }
 }

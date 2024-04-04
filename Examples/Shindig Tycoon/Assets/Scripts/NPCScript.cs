@@ -88,7 +88,7 @@ public class NPCScript : MonoBehaviour
             }
         }
 
-        if (Random.Range(1f, 10f) > 9f)
+        if (Random.Range(1f, 100f) > 99.85f)
         {
             StartCoroutine(DisplayEmoticon());
         }
@@ -114,6 +114,8 @@ public class NPCScript : MonoBehaviour
     
     private IEnumerator DisplayEmoticon()
     {
+        _emoticon.sprite = NPCManager.Instance.GetRandomEmote();
+        
         // Ensure the sprite is visible
         _emoticon.enabled = true;
 

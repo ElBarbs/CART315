@@ -10,6 +10,7 @@ public class NPCManager : MonoBehaviour
     public static NPCManager Instance { get; private set; }
 
     public GameObject npcPrefab;
+    public Sprite[] emoticons;
 
     private int _visitorCount, _visitorMax;
     private bool _spawning, _randomEvents;
@@ -45,6 +46,11 @@ public class NPCManager : MonoBehaviour
 
         StartCoroutine(TryToSpawn());
         StartCoroutine(RandomEvents());
+    }
+
+    public Sprite GetRandomEmote()
+    {
+        return emoticons[Random.Range(0, emoticons.Length)];
     }
 
     public GameObject FindFriend(Guid npcID)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -36,6 +37,12 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             PanelUpdate();
+        }
+
+        if (CalculateOverallHappiness() <= 0)
+        {
+            Scene.LoadScene("EndGame");
+            Debug.Log("Game Over");
         }
 
 

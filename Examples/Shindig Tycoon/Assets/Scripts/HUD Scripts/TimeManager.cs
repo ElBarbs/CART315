@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using TMPro; // Include the TextMeshPro namespace
+using UnityEngine.SceneManagement;
 
 public class TimeProgression : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class TimeProgression : MonoBehaviour
     private TimeSpan startHour = new TimeSpan(20, 0, 0); // Starting time 20:00
     private TimeSpan endHour = new TimeSpan(6, 0, 0); // Ending time 6:00
     private TimeSpan totalDuration;
+
+
+
 
     void Start()
     {
@@ -41,7 +45,8 @@ public class TimeProgression : MonoBehaviour
         // Loop the time progression
         if (progress >= 1)
         {
-            startTime = Time.time; // Reset start time
+            Scene.LoadScene("EndGame");
+
         }
     }
 }

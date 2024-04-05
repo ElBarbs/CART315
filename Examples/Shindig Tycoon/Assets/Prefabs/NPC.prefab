@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2b6076d0e8183448a9da1bf862d96ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vomitPrefab: {fileID: 3116288227706690347, guid: 18808d619cbee4646b43ef3b88979cfb, type: 3}
 --- !u!195 &8376195854085419004
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d4f6a80d-5c39-4303-a0c0-da1ef03a3539" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Shindig Tycoon/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Shindig Tycoon/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/NPC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/NPC.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPCManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HUD Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HUD Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HUD Scripts/TimeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HUD Scripts/TimeManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPCScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPCScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +112,7 @@
       <workItem from="1712164574181" duration="53000" />
       <workItem from="1712164756481" duration="1938000" />
       <workItem from="1712170404190" duration="3155000" />
-      <workItem from="1712265655452" duration="1947000" />
+      <workItem from="1712265655452" duration="6521000" />
     </task>
     <servers />
   </component>

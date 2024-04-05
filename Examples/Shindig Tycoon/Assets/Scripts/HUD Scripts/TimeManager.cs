@@ -45,8 +45,7 @@ public class TimeProgression : MonoBehaviour
         // Loop the time progression
         if (progress >= 1)
         {
-            Scene.LoadScene("EndGame");
-
+            SceneManager.LoadScene("EndGame");
         }
     }
 }

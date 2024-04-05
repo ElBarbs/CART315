@@ -8,6 +8,8 @@ public class NPCScript : MonoBehaviour
 {
     public Guid ID { get; set; }
     public GameObject MovingTarget { get; set; }
+
+    public GameObject vomitPrefab;
     
     private Vector3 _target;
     private NavMeshAgent _agent;
@@ -88,9 +90,15 @@ public class NPCScript : MonoBehaviour
             }
         }
 
-        if (Random.Range(1f, 100f) > 99.85f)
+        if (Random.Range(1f, 100f) > 99.95f)
         {
             StartCoroutine(DisplayEmoticon());
+        }
+
+        if (Random.Range(1f, 100f) > 100f - (0.025f * _drunknessLevel))
+        {
+            Instantiate(vomitPrefab, transform.position, Quaternion.identity);
+            GameManager.Instance.UpdateMeter("Trash", -0.5f);
         }
     }
     

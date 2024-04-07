@@ -86,3 +86,14 @@ We are trying to figure out the look and feel of the game. We found assets toget
 ### Images
 
 ![Prototype 2 Screen](/Process/Images/CART315_Prototype02_Screen.png)
+
+## Shindig Tycoon - Prototype 3
+
+### Description
+
+We added more furniture to the playable area and merged it with the HUD. I wrote a script to spawn NPCs and used the "AI Navigation" package to create a NavigationMesh that allows them to know where they are able to go in the playable area. I need to find a way of making them move naturally, to interact with the environement and to express their emotions.
+
+### Images
+
+![Prototype 3 Screen](/Process/Images/CART315_Prototype03_Screen.png)
+![Prototype 3 NavigationMesh](/Process/Images/CART315_Prototype03_NavigationMesh.png)

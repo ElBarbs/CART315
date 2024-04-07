@@ -91,7 +91,7 @@ We are trying to figure out the look and feel of the game. We found assets toget
 
 ### Description
 
-We added more furniture to the playable area and merged it with the HUD. I wrote a script to spawn NPCs and used the "AI Navigation" package to create a NavigationMesh that allows them to know where they are able to go in the playable area. I need to find a way of making them move naturally, to interact with the environement and to express their emotions.
+We added more furniture to the playable area and merged it with the HUD. I wrote a script to spawn NPCs and used the "AI Navigation" package to create a NavigationMesh that allows them to know where they are able to go in the playable area. For now, they don't have any walking animation. For next week, I need to find a way of making them move naturally, to interact with the environement and to express their emotions.
 
 ### Images
 

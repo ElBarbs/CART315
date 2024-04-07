@@ -19,66 +19,108 @@ public class GameManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
         else
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 
     void Start()
     {
-        //Create new Meters with a starting value of 100
+        // Create new Meters with a starting value of 100
         MusicMeter = new BaseMeter(100f);
         TrashMeter = new BaseMeter(100f);
         DrinkMeter = new BaseMeter(100f);
 
+        // Initial UI Update
+        UpdateMeterUI("Music");
+        UpdateMeterUI("Trash");
+        UpdateMeterUI("Drink");
     }
 
-
-    void PanelUpdate()
+    void Update()
     {
-        PanelManager.GetComponent<MeterManager>().UpdateSpecificMeter("Drink", -0.1f);
-        PanelManager.GetComponent<MeterManager>().UpdateSpecificMeter("Music", -0.1f);
-        PanelManager.GetComponent<MeterManager>().UpdateSpecificMeter("Trash", -0.1f);
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            // Example of updating a meter
+            UpdateMeter("Trash", -10f);
+        }
 
+        if (CalculateOverallHappinessAndUpdateUI() <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
     }
 
     public void UpdateMeter(string meterName, float fillAmount)
     {
-        PanelManager.GetComponent<MeterManager>().UpdateSpecificMeter(meterName, fillAmount);
-    }
+        // Assuming fillAmount is a change in value, not the new fill amount
+        // and assuming a weight of 1 for simplicity; adjust as needed
+        float weight = 1; // Default weight, adjust as per your game's logic
 
-    // Update is called once per frame
-    void Update()
-    {
-        // if (Input.GetKeyDown(KeyCode.W))
-        // {
-        //     PanelUpdate();
-        // }
-
-        if (CalculateOverallHappiness() <= 0)
+        switch (meterName)
         {
-            SceneManager.LoadScene("EndGame");
+            case "Trash":
+                TrashMeter.UpdateValue(fillAmount, weight);
+                break;
+            case "Drink":
+                DrinkMeter.UpdateValue(fillAmount, weight);
+                break;
+            case "Music":
+                MusicMeter.UpdateValue(fillAmount, weight);
+                break;
+
         }
 
+        // Now reflect this change in the UI
+        UpdateMeterUI(meterName);
+        CalculateOverallHappinessAndUpdateUI();
+
+
 
     }
 
-    public float CalculateOverallHappiness()
+
+    void UpdateMeterUI(string meterName)
     {
-        // Calculate the sum of the current values
-        float currentValueSum = MusicMeter.CurrentValue + TrashMeter.CurrentValue + DrinkMeter.CurrentValue;
+        float fillAmount = 0f;
+        switch (meterName)
+        {
+            case "Trash":
+                fillAmount = TrashMeter.CurrentValue / TrashMeter.MaxValue; // Assuming MaxValue is defined
+                break;
+            case "Drink":
+                fillAmount = DrinkMeter.CurrentValue / DrinkMeter.MaxValue;
+                break;
+            case "Music":
+                fillAmount = MusicMeter.CurrentValue / MusicMeter.MaxValue;
+                break;
+                // Add cases for other meters as necessary
+        }
 
-        // Scale the sum to the overall happiness range
+        // Calculate how much to adjust the UI meter
+        float uiAdjustment = fillAmount - PanelManager.GetComponent<MeterManager>().GetFillAmount(meterName);
+        PanelManager.GetComponent<MeterManager>().UpdateSpecificMeter(meterName, uiAdjustment);
+    }
+
+    public float CalculateOverallHappinessAndUpdateUI()
+    {
+        // Existing logic to calculate overall happiness
+        float currentValueSum = TrashMeter.CurrentValue;
         float scaledHappiness = (currentValueSum / TotalMaxValue) * HappinessMaxValue;
-
-        // Ensure overall happiness does not exceed the max value
         scaledHappiness = Mathf.Clamp(scaledHappiness, 0, HappinessMaxValue);
 
+        // Normalize the happiness value to a 0-1 scale for the UI
+        float normalizedHappiness = scaledHappiness / HappinessMaxValue;
+
+        // Update the happiness meter UI
+        PanelManager.GetComponent<MeterManager>().UpdateHappinessMeter(normalizedHappiness);
+
+        Debug.Log("Overall Happiness: " + scaledHappiness);
         return scaledHappiness;
     }
-
 
 }

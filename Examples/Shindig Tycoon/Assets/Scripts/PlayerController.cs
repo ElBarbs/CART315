@@ -1,28 +1,33 @@
 using UnityEngine;
+using UnityEngine.AI; // Necessary for NavMesh functionalities
 
-public class PlayerMovement : MonoBehaviour
+public class Player2DNavMeshMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f; // Speed of the character movement
-    private Rigidbody2D rb; // Reference to the Rigidbody2D component
-    private Vector2 movement; // The current movement direction
+    public float speed = 5.0f; // Player movement speed
+    public float maxNavMeshDistance = 1.0f; // Max distance from the NavMesh to consider valid for movement
 
-    void Start()
+    private void Update()
     {
-        rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component from the GameObject
+        float horizontal = Input.GetAxis("Horizontal"); // Get horizontal input (A and D keys)
+        float vertical = Input.GetAxis("Vertical"); // Get vertical input (W and S keys)
+
+        Vector3 direction = new Vector3(horizontal, vertical, 0); // Construct the movement direction vector
+
+        if (direction.magnitude >= 0.1f) // Check if there's significant movement input
+        {
+            TryMove(direction); // Attempt to move in the desired direction
+        }
     }
 
-    void Update()
+    private void TryMove(Vector3 direction)
     {
-        // Input.GetAxisRaw gives us a value of -1, 0, or 1
-        movement.x = Input.GetAxisRaw("Horizontal"); // Get horizontal input (left/right)
-        movement.y = Input.GetAxisRaw("Vertical"); // Get vertical input (up/down)
-    }
+        Vector3 targetPosition = transform.position + direction * speed * Time.deltaTime; // Calculate the target position based on the direction and speed
 
-    void FixedUpdate()
-    {
-        // Move the character by finding the target velocity
-        Vector2 currentPosition = rb.position; // Current position
-        Vector2 newPosition = currentPosition + movement * moveSpeed * Time.fixedDeltaTime; // Calculate new position
-        rb.MovePosition(newPosition); // Move the Rigidbody to the new position
+        // Use NavMesh.SamplePosition to check if the target position is valid (within NavMesh boundaries)
+        if (NavMesh.SamplePosition(targetPosition, out NavMeshHit hit, maxNavMeshDistance, NavMesh.AllAreas))
+        {
+            transform.position = hit.position; // If valid, move the player to the nearest point on the NavMesh
+        }
+        // If the position isn't valid, the player won't move. You can add handling here if needed.
     }
 }

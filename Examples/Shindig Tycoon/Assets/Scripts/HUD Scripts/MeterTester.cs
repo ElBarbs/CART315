@@ -56,8 +56,7 @@ public class MeterTester : MonoBehaviour
             Debug.Log($"{meterToUpdate} Meter: {selectedMeter.CurrentValue}");
 
             // Log overall happiness
-            float overallHappiness = gameManager.CalculateOverallHappiness();
-            Debug.Log($"Overall Happiness: {overallHappiness}");
+
         }
     }
 }

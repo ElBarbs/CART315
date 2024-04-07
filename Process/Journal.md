@@ -91,9 +91,19 @@ We are trying to figure out the look and feel of the game. We found assets toget
 
 ### Description
 
-We added more furniture to the playable area and merged it with the HUD. I wrote a script to spawn NPCs and used the "AI Navigation" package to create a NavigationMesh that allows them to know where they are able to go in the playable area. For now, they don't have any walking animation. For next week, I need to find a way of making them move naturally, to interact with the environement and to express their emotions.
+We added more furniture to the playable area and merged it with the HUD. I wrote a script to spawn NPCs and used the "AI Navigation" package to create a NavigationMesh that allows them to know where they are able to go in the playable area. For now, they don't have any walking animation. For next week, I need to find a way of making them move naturally, to interact with the environment and to express their emotions.
 
 ### Images
 
 ![Prototype 3 Screen](/Process/Images/CART315_Prototype03_Screen.png)
 ![Prototype 3 NavigationMesh](/Process/Images/CART315_Prototype03_NavigationMesh.png)
+
+## Shindig Tycoon - Prototype 4
+
+### Description
+
+NPCs now follow each other if they are part of the same group of friends. They can also emote and vomit on the floor based on their drunkenness level. The meter representing the cleanliness of the house is affected by the amount of vomit on the floor and if it reaches 0, the game is over. I need to add a way of cleaning up the house and more interactions between the NPCs and the environment.
+
+### Images
+
+![Prototype 4 Pathfinding Demo](/Process/Images/CART315_Prototype04_PathfindingDemo.gif)

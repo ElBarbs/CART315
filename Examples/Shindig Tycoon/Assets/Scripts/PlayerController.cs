@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI; // Necessary for NavMesh functionalities
 
@@ -21,7 +22,7 @@ public class Player2DNavMeshMovement : MonoBehaviour
 
     private void TryMove(Vector3 direction)
     {
-        Vector3 targetPosition = transform.position + direction * speed * Time.deltaTime; // Calculate the target position based on the direction and speed
+        Vector3 targetPosition = transform.position + direction * (speed * Time.deltaTime); // Calculate the target position based on the direction and speed
 
         // Use NavMesh.SamplePosition to check if the target position is valid (within NavMesh boundaries)
         if (NavMesh.SamplePosition(targetPosition, out NavMeshHit hit, maxNavMeshDistance, NavMesh.AllAreas))
@@ -29,5 +30,14 @@ public class Player2DNavMeshMovement : MonoBehaviour
             transform.position = hit.position; // If valid, move the player to the nearest point on the NavMesh
         }
         // If the position isn't valid, the player won't move. You can add handling here if needed.
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Destroy(other.gameObject);
+            GameManager.Instance.UpdateMeter("Trash", 0.5f);
+        }
     }
 }

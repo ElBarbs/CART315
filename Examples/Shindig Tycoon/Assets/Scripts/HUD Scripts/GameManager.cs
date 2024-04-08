@@ -118,8 +118,7 @@ public class GameManager : MonoBehaviour
 
         // Update the happiness meter UI
         PanelManager.GetComponent<MeterManager>().UpdateHappinessMeter(normalizedHappiness);
-
-        Debug.Log("Overall Happiness: " + scaledHappiness);
+        
         return scaledHappiness;
     }
 

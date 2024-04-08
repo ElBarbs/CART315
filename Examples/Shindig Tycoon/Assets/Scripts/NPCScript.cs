@@ -95,7 +95,7 @@ public class NPCScript : MonoBehaviour
             StartCoroutine(DisplayEmoticon());
         }
 
-        if (Random.Range(1f, 100f) > 100f - (0.025f * _drunknessLevel))
+        if (Random.Range(1f, 100f) > 100f - (0.5f * _drunknessLevel))
         {
             Instantiate(vomitPrefab, transform.position, Quaternion.identity);
             GameManager.Instance.UpdateMeter("Trash", -0.5f);

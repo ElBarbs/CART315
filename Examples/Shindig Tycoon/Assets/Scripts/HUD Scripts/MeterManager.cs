@@ -1,32 +1,36 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI; // Required for UI components
 
 public class MeterManager : MonoBehaviour
 {
-    public GameObject HappMeter;
-    public GameObject DrinkMeter;
-    public GameObject TrashMeter;
-    public GameObject MusicMeter;
+    private Image _happinessMeter, _drinkMeter, _trashMeter, _musicMeter;
 
+    private void Start()
+    {
+        _happinessMeter = GameObject.FindWithTag("HappinessMeter").GetComponent<Image>();
+        _drinkMeter = GameObject.FindWithTag("DrinkMeter").GetComponent<Image>();
+        _trashMeter = GameObject.FindWithTag("TrashMeter").GetComponent<Image>();
+        _musicMeter = GameObject.FindWithTag("MusicMeter").GetComponent<Image>();
+    }
 
     // Example method to update a specific meter
     public void UpdateSpecificMeter(string meterName, float fillAmount)
     {
         switch (meterName)
         {
-            case "Happ":
-                HappMeter.GetComponent<Image>().fillAmount += fillAmount;
+            case "Happiness":
+                _happinessMeter.fillAmount += fillAmount;
                 break;
             case "Drink":
-                DrinkMeter.GetComponent<Image>().fillAmount += fillAmount;
+                _drinkMeter.fillAmount += fillAmount;
                 break;
             case "Trash":
-                TrashMeter.GetComponent<Image>().fillAmount += fillAmount;
+                _trashMeter.fillAmount += fillAmount;
                 break;
             case "Music":
-                MusicMeter.GetComponent<Image>().fillAmount += fillAmount;
+                _musicMeter.fillAmount += fillAmount;
                 break;
-
             default:
                 Debug.LogWarning("Meter name not recognized.");
                 break;
@@ -38,27 +42,23 @@ public class MeterManager : MonoBehaviour
     {
         switch (meterName)
         {
-            case "Happ":
-                return HappMeter.GetComponent<Image>().fillAmount;
+            case "Happiness":
+                return _happinessMeter.fillAmount;
             case "Drink":
-                return DrinkMeter.GetComponent<Image>().fillAmount;
+                return _drinkMeter.fillAmount;
             case "Trash":
-                return TrashMeter.GetComponent<Image>().fillAmount;
+                return _trashMeter.fillAmount;
             case "Music":
-                return MusicMeter.GetComponent<Image>().fillAmount;
-
-
+                return _musicMeter.fillAmount;
             default:
                 Debug.LogWarning("Meter name not recognized.");
-                return 0; // Return 0 if meter name is unrecognized
+                return 0f; // Return 0 if meter name is unrecognized
         }
-
-
     }
 
     public void UpdateHappinessMeter(float happinessLevel)
     {
         // Assuming happinessLevel is a value between 0 and 1 representing the percentage of happiness
-        HappMeter.GetComponent<Image>().fillAmount = happinessLevel;
+        _happinessMeter.fillAmount = happinessLevel;
     }
 }

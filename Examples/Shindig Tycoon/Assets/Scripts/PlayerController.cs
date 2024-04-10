@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.AI; // Necessary for NavMesh functionalities
 
-public class Player2DNavMeshMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public float speed = 5.0f; // Player movement speed
     public float maxNavMeshDistance = 1.0f; // Max distance from the NavMesh to consider valid for movement
@@ -37,7 +37,7 @@ public class Player2DNavMeshMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             Destroy(other.gameObject);
-            GameManager.Instance.UpdateMeter("Trash", 0.5f);
+            GameManager.Instance.UpdateMeter("Trash", 2.5f);
         }
     }
 }

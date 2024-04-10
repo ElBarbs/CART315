@@ -330,8 +330,8 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -700,7 +700,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1865224589}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88ac2c8a44b65a34a8f89e75b2812c58, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ea7b0a3b69abfb4c9460de7f2e9f916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playAgainButton: {fileID: 1865224592}

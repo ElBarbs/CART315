@@ -77,10 +77,7 @@ public class NPCScript : MonoBehaviour
             
             if (_currentTime >= _waitTime)
             {
-                if (RandomPoint(transform.position, _range, out var point))
-                {
-                    _target = point;
-                }
+                StartCoroutine(FindNextTarget());
                 
                 _currentTime = 0f;
                 _waitTime = Random.Range(0f, 5f);
@@ -95,10 +92,10 @@ public class NPCScript : MonoBehaviour
             StartCoroutine(DisplayEmoticon());
         }
 
-        if (Random.Range(1f, 100f) > 100f - (0.5f * _drunknessLevel))
+        if (Random.Range(1f, 100f) > 100f - (0.25f * _drunknessLevel))
         {
             Instantiate(vomitPrefab, transform.position, Quaternion.identity);
-            GameManager.Instance.UpdateMeter("Trash", -0.5f);
+            GameManager.Instance.UpdateMeter("Trash", -5f);
         }
     }
     
@@ -118,6 +115,16 @@ public class NPCScript : MonoBehaviour
         
         result = Vector3.zero;
         return false;
+    }
+    
+    private IEnumerator FindNextTarget()
+    {
+        if (RandomPoint(transform.position, _range, out var point))
+        {
+            _target = point;
+        }
+        
+        yield return true;
     }
     
     private IEnumerator DisplayEmoticon()

@@ -86,8 +86,8 @@ public class NPCManager : MonoBehaviour
                 }
             }
 
-            // Wait 10-30 seconds.
-            yield return new WaitForSeconds(Random.Range(10f, 30f));
+            // Wait 7.5-15 seconds.
+            yield return new WaitForSeconds(Random.Range(7.5f, 15f));
         }
     }
 

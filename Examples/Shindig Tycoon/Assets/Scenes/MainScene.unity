@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 90235106}
   m_Layer: 5
   m_Name: TrashMeter
-  m_TagString: Untagged
+  m_TagString: TrashMeter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 319455866}
   m_Layer: 5
   m_Name: DrinkMeter
-  m_TagString: Untagged
+  m_TagString: DrinkMeter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 323249202}
   m_Layer: 5
   m_Name: MusicMeter
-  m_TagString: Untagged
+  m_TagString: MusicMeter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3737,7 +3737,7 @@ GameObject:
   - component: {fileID: 415254477}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24416,9 +24416,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1228336085}
-  - component: {fileID: 1228336086}
   m_Layer: 0
-  m_Name: PanelManager
+  m_Name: Meters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24443,22 +24442,6 @@ Transform:
   - {fileID: 90235105}
   m_Father: {fileID: 787318158}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1228336086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1228336084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd71f2dcaadd0b46898df6e7675a854, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HappMeter: {fileID: 1263760830}
-  DrinkMeter: {fileID: 319455864}
-  TrashMeter: {fileID: 90235104}
-  MusicMeter: {fileID: 323249200}
 --- !u!1 &1263760830
 GameObject:
   m_ObjectHideFlags: 0
@@ -24471,8 +24454,8 @@ GameObject:
   - component: {fileID: 1263760833}
   - component: {fileID: 1263760832}
   m_Layer: 5
-  m_Name: HappMeter
-  m_TagString: Untagged
+  m_Name: HappinessMeter
+  m_TagString: HappinessMeter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60650,7 +60633,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 365e14f003091a94db1f57242074e071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PanelManager: {fileID: 1228336084}
 --- !u!4 &2036560680
 Transform:
   m_ObjectHideFlags: 0

@@ -21,6 +21,7 @@ public class NPCScript : MonoBehaviour
     private float _range, _speed, _acceleration;
 
     private bool _isLeaving;
+    private Coroutine _findNextTarget, _displayEmoticon;
     
     private void Start()
     {
@@ -77,7 +78,7 @@ public class NPCScript : MonoBehaviour
             
             if (_currentTime >= _waitTime)
             {
-                StartCoroutine(FindNextTarget());
+                _findNextTarget = StartCoroutine(FindNextTarget());
                 
                 _currentTime = 0f;
                 _waitTime = Random.Range(0f, 5f);
@@ -89,16 +90,34 @@ public class NPCScript : MonoBehaviour
 
         if (Random.Range(1f, 100f) > 99.95f)
         {
-            StartCoroutine(DisplayEmoticon());
+            _displayEmoticon = StartCoroutine(DisplayEmoticon());
         }
 
-        if (Random.Range(1f, 100f) > 100f - (0.25f * _drunknessLevel))
+        if (Random.Range(1f, 100f) > 100f - (0.075f * _drunknessLevel))
         {
             Instantiate(vomitPrefab, transform.position, Quaternion.identity);
             GameManager.Instance.UpdateMeter("Trash", -5f);
         }
     }
-    
+
+    private void OnDestroy()
+    {
+        StopCoroutines();
+    }
+
+    private void StopCoroutines()
+    {
+        if (_findNextTarget != null)
+        {
+            StopCoroutine(_findNextTarget);
+        }
+
+        if (_displayEmoticon != null)
+        {
+            StopCoroutine(_displayEmoticon);
+        }
+    }
+
     private bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
         for (int i = 0; i < 30; i++)

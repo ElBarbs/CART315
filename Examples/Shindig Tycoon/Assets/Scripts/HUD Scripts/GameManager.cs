@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public BaseMeter DrinkMeter { get; private set; }
     
     private Image _happinessMeter, _drinkMeter, _trashMeter, _musicMeter;
+    private bool _isPlaying;
     
     private const float TotalMaxValue = 300f; // Sum of max values of all meters
     private const float HappinessMaxValue = 200f; // Max value for overall happiness
@@ -30,6 +31,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        _isPlaying = true;
+        
         _happinessMeter = GameObject.FindWithTag("HappinessMeter").GetComponent<Image>();
         _drinkMeter = GameObject.FindWithTag("DrinkMeter").GetComponent<Image>();
         _trashMeter = GameObject.FindWithTag("TrashMeter").GetComponent<Image>();
@@ -54,8 +57,9 @@ public class GameManager : MonoBehaviour
             UpdateMeter("Trash", -10f);
         }
 
-        if (CalculateOverallHappinessAndUpdateUI() <= 0)
+        if (CalculateOverallHappinessAndUpdateUI() <= 0 && _isPlaying)
         {
+            _isPlaying = false;
             SceneManager.LoadScene("GameOver");
         }
     }

@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKey(KeyCode.Return))
         {
             Destroy(other.gameObject);
             GameManager.Instance.UpdateMeter("Trash", 2.5f);

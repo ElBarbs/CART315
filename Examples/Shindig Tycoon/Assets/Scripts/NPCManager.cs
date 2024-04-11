@@ -16,6 +16,7 @@ public class NPCManager : MonoBehaviour
     private bool _spawning, _randomEvents;
 
     private Dictionary<Guid, NPC> _npcs;
+    private Coroutine _tryToSpawn, _checkRandomEvents;
 
     private void Awake()
     {
@@ -44,8 +45,8 @@ public class NPCManager : MonoBehaviour
         _spawning = true;
         _randomEvents = true;
 
-        StartCoroutine(TryToSpawn());
-        StartCoroutine(RandomEvents());
+        _tryToSpawn = StartCoroutine(TryToSpawn());
+        _checkRandomEvents = StartCoroutine(CheckRandomEvents());
     }
 
     public Sprite GetRandomEmote()
@@ -57,6 +58,18 @@ public class NPCManager : MonoBehaviour
     {
         var groupID = _npcs[npcID].GetGroupID();
         return _npcs.Values.ToList().Find(npc => npc.GetGroupID() == groupID && npc.GetID() != npcID).GetGameObject();
+    }
+
+    public void StopSpawning()
+    {
+        _spawning = false;
+        _randomEvents = false;
+    }
+    
+    private void OnDestroy()
+    {
+        StopCoroutine(_tryToSpawn);
+        StopCoroutine(_checkRandomEvents);
     }
 
     private IEnumerator TryToSpawn()
@@ -91,7 +104,7 @@ public class NPCManager : MonoBehaviour
         }
     }
 
-    private IEnumerator RandomEvents()
+    private IEnumerator CheckRandomEvents()
     {
         while (_randomEvents)
         {
@@ -119,6 +132,7 @@ public class NPCManager : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(5f, 20f));
         }
     }
+    
 }
 
 public class NPC

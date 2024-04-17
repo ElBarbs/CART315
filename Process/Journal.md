@@ -107,3 +107,15 @@ NPCs now follow each other if they are part of the same group of friends. They c
 ### Images
 
 ![Prototype 4 Pathfinding Demo](/Process/Images/CART315_Prototype04_PathfindingDemo.gif)
+
+## Shindig Tycoon - Prototype 5
+
+### Description
+
+I’ve added a way of picking up the vomit of the floor which restores a little bit of the cleanliness meter. I’ve transformed the function that the NPCs were using to find a new location into a coroutine to improve performance. I’ve refactored the code to update the meters to fix an error that was thrown when changing scene.
+
+We’ve got a lot of great suggestions on how to improve the game through our final presentation:
+- Changing the clock for a visual representation like the sun.
+- Having to break up fights between guests.
+- Having to hide the guests in a room when the police comes.
+- Having a party planning phase before the game starts, in which you would decide the number of people you’re inviting, your inventory, etc.
